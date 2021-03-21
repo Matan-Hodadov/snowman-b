@@ -1,4 +1,4 @@
-//include needed files
+
 #include <iostream>
 #include <string>
 #include <array>
@@ -22,24 +22,24 @@ namespace ariel{
     const int four = 4;
     const int five = 5;
     const int six = 6;
-    const int seven = 7;
+    const int hatIndex = 0;
+    const int s = 1;
+    const int leftEyeIndex = 2;
+    const int rightEyeIndex = 3;
+    const int LeftArmIndex = 4;
+    const int rightArmIndex = 5;
+    const int s = 6;
+    const int baseIndex = 7;
+
     
     //define arrays for each part of the snowman
-    //array of possible hats  
     array<string,4> hats = {" _===_ ", "  ___  \n ..... ", "   _   \n  /_\\  ", "  ___  \n (_*_) "};
-    //array of possible noses 
     array<string,4> noses = {",", ".", "_", " "};
-    //array of possible left eyes
     array<string,4> lefteye = {".", "o", "O", "-"};
-    //array of possible right eyes 
     array<string,4> righteye = {".", "o", "O", "-"};
-    //array of possible left arms 
     array<string,4> leftarm = {"<", "\\", "/", " "};
-    //array of possible right arms 
     array<string,4> rightarm = {">", "/", "\\", " "};
-    //array of possible torsos 
     array<string,4> torsos = {" : ", "] [", "> <", "   "};
-    //array of possible bases 
     array<string,4> bases = {" : ","\" \"","___","   "};
 
     //throw error function for invalid input
@@ -84,20 +84,21 @@ namespace ariel{
         {
             invalid_input(num);  //call the throw error function
         }
+
         //create string variables for the diff parts of his body
         string hat;
         string head;
         string body;
         string base;
 
-        hat = hats.at(digits.at(zero)-1);  //assigning to hat variable the hat format from the array by the correct index
-        head = "(" + lefteye.at(digits.at(two)-1) + noses.at(digits.at(one)-1) + righteye.at(digits.at(three)-1) + ")";  //assigning to head variable all the wanted strings (eyes and nose)
-        body = "(" + torsos.at(digits.at(six)-1) + ")";  //assigning to body variable the body format from the array by the correct index
-        base = " (" + bases.at(digits.at(seven)-1) + ") ";  //assigning to base variable the base format from the array by the correct index
+        hat = hats.at(digits.at(hatIndex)-1);  //assigning to hat variable the hat format from the array by the correct index
+        head = "(" + lefteye.at(digits.at(leftEyeIndex)-1) + noses.at(digits.at(noseIndex)-1) + righteye.at(digits.at(rightEyeIndex)-1) + ")";  //assigning to head variable all the wanted strings (eyes and nose)
+        body = "(" + torsos.at(digits.at(torsosIndex)-1) + ")";  //assigning to body variable the body format from the array by the correct index
+        base = " (" + bases.at(digits.at(baseIndex)-1) + ") ";  //assigning to base variable the base format from the array by the correct index
 
         //now we have to add the hands to the body and head parts respectively
         //switch case for the left arm
-        switch (digits.at(four))
+        switch (digits.at(LeftArmIndex))
         {
             case one:
                 head = " " + head;
@@ -120,7 +121,7 @@ namespace ariel{
         }
 
         //switch case for the right arm
-        switch (digits.at(five))
+        switch (digits.at(rightArmIndex))
         {
             case one:
                 head = head + " ";
@@ -141,6 +142,7 @@ namespace ariel{
             default:
                 invalid_input(num);
         }
+        
         //add the diffrent parts of the snowman to the one snowman string 
         res = hat + "\n" + head + "\n" + body + "\n" + base;
         return res;

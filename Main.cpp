@@ -14,6 +14,7 @@ void sleep(int milli_sec)
 
 int main()
 {
+    system("clear");
     int time = 500;
     for (int i = 0; i < 3; i++)
     {
@@ -21,7 +22,7 @@ int main()
         {
             cout << "\n" << endl;
         }
-        cout << snowman(11112211) << endl;
+        cout << snowman(44112244) << endl;
         sleep(time);
         system("clear");
 
@@ -29,10 +30,12 @@ int main()
         {
             cout << "\n" << endl;
         }
-        cout << snowman(11113311) << endl;
+        cout << snowman(44113344) << endl;
         sleep(time);
         system("clear");
     }
+    sleep(time*3);
+    
 }
 
 // void jumping_snowman()
